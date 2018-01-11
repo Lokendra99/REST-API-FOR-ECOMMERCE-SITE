@@ -1,0 +1,13 @@
+extends ./layout.jade
+
+block title
+  title Dupicate User
+
+block content
+  .container(style='margin-top:50px')
+    .jumbotron(style='text-align:center')
+      h2 Sorry!! But the user with this emailid already exists.
+      p.lead
+        | kindly go back and fill up your real email id.
+      p
+        a.btn.btn-lg.btn-success(href='/signUpPage', role='button') Go Back

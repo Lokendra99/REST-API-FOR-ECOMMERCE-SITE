@@ -1,0 +1,27 @@
+
+nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='#') eCart
+        ul.nav.navbar-nav
+          li.active
+            a(href='/listOfAllProducts') All Products
+          li.dropdown
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              | Categories
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href='/displayProductOnTheBasisOfCategory/Electronics') Electronics
+              li
+                a(href='/displayProductOnTheBasisOfCategory/Clothes') Clothes
+              li
+                a(href='/displayProductOnTheBasisOfCategory/Footwear') Footwear
+
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='/user/details') Your Details
+          li
+            a(href='/user/cartProduct')
+              span.glyphicon.glyphicon-user
+              |  Your Cart

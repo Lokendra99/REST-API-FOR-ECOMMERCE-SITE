@@ -1,0 +1,29 @@
+extends ./layout.jade
+
+block title
+  title Product Details
+
+block content
+
+  .container
+    .row.well(style="margin-top:50px;background-color:#EAEDDF")
+      h1(style='text-align:center')  Product Details
+      .col-lg-6
+        .card.mt-4
+          img.card-img-top.img-fluid.img-responsive(src='#{imageAdd}', alt='', width='400', height='300')
+      .col-lg-6
+          .card-body
+            h3.card-title #{productName}
+            h4 Rs.#{productPrice}
+            h5  Sold By Mr.#{productSellerName}
+            h3 Only 2 left in stock.
+            h5 Product Description
+            ul
+            each val in productDescription
+              li #{val}
+            h5 Product Properties
+            ul
+            each key,val in productProperties
+              li #{key}:#{val}
+            br
+            a.btn.btn-primary(href='/cart/#{productid}', role='button') Add this product to cart

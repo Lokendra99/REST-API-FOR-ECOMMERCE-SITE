@@ -1,0 +1,13 @@
+extends ./layout.jade
+
+block title
+  title ImageUpload
+
+block content
+  .container.well(style='margin-top:50px')
+    h3 Kindly upload the image of the product you want to create.
+    form(action='/productImageUpload',enctype='multipart/form-data', method='post')
+      .form-group
+        label(for='photo') Upload Photo:
+        input#email.form-control(type='file',placeholder='Upload the image of the product', name='photo')
+      button.btn.btn-default(type='submit') Submit

@@ -1,0 +1,50 @@
+extends ./layout.jade
+
+block title
+  title Product Details
+
+block content
+  .container.well(style='margin-top:30px;background-color:rgb(231,226,214)')
+    h3 Kindly fill up the Product details!!
+    form.form-horizontal(action='/productAdd',method='post')
+      .form-group
+        label.control-label.col-sm-2(for='firstName') ProductName:
+        .col-sm-10
+          input#email.form-control(type='text', placeholder='Enter productName', name='productName')
+      .form-group
+        label.control-label.col-sm-2(for='ProductCategory') ProductCategory:
+        .col-sm-10
+          select.form-control(name="productCategory")
+            option Electronics
+            option Footwear
+            option Clothes
+      .form-group
+        label.control-label.col-sm-2(for='productPrice') ProductPrice:
+        .col-sm-10
+          input#email.form-control(type='text', placeholder='Enter productPrice (Only number)', name='productPrice')
+      .form-group
+        label.control-label.col-sm-2(for='productSellerName') ProductSellerName:
+        .col-sm-10
+          input#pwd.form-control(type='text', placeholder='Enter productSellerName', name='productSellerName')
+      .form-group
+        label.control-label.col-sm-2(for='productDescription') ProductDescription:
+        .col-sm-10
+          textarea.form-control(rows='5',placeholder='Enter ProductDescription in sentences.For ex- nice product.Easy to wash.lightweight and branded product.' ,name='productDescription')
+      .form-group
+        label.control-label.col-sm-2(for='productColor') ProductColor:
+        .col-sm-10
+          input#pwd.form-control(type='text', placeholder='Enter productColor', name='productColor')
+      .form-group
+        label.control-label.col-sm-2(for='productMaterial') ProductMaterial:
+        .col-sm-10
+          input#pwd.form-control(type='text', placeholder='Enter productMaterial', name='productMaterial')
+      .form-group
+        label.control-label.col-sm-2(for='productQuality') ProductQuality:
+        .col-sm-10
+          select.form-control(name='productQuality')
+            option High
+            option Medium
+            option Low
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type='submit') Submit

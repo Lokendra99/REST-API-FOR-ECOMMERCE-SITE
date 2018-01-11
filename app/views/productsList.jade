@@ -1,0 +1,17 @@
+extends ./layout.jade
+
+block title
+  title All Products
+block content
+  .container
+    h2 All Products
+    p A breif overview of each product present.
+    .row
+     each val, key in obj
+      .col-xs-6.col-lg-3.col-md-3.col-sm-4
+        .thumbnail
+          a(href='/displayProduct/#{val._id}', target='_blank',style="text-decoration:none")
+            img(src='#{val.productImageAddress}', alt='Image was not provided by the user', style='width:100%')
+            .caption.well(style="margin-bottom:0 !important;margin-top:20px")
+                h5.pull-right Rs. #{val.productPrice}
+                h5 #{val.productName}

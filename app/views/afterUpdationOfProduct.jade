@@ -1,0 +1,14 @@
+extends ./layout.jade
+
+block title
+  title Successfull product Updated
+
+block content
+  .container(style='margin-top:50px')
+    .jumbotron(style='text-align:center')
+      h2 Congratulaions!! Your product has been Updated.
+      p.lead
+        | Check your updated product
+      p
+        a.btn.btn-lg.btn-success(href='/displayProduct/#{result._id}', role='button') Your Updated Product
+        

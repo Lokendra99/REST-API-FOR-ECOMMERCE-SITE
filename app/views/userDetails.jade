@@ -1,0 +1,24 @@
+extends ./layout.jade
+
+block title
+  title User Details
+
+block content
+  .container(style='margin-top:50px')
+    .jumbotron(style='text-align:center')
+      h3
+        |User Name : #{result.fullName}
+        br
+        br
+        |First Name: #{result.firstName}
+        br
+        br
+        |Last Name:  #{result.lastName}
+        br
+        br
+        |Email: #{result.email}
+      br
+      p
+        a.btn.btn-lg.btn-success.btn-md(href='/user/update', role='button') Want to Update details?
+        &nbsp &nbsp
+        a.btn.btn-lg.btn-success.btn-md(href='/listOfAllProducts', role='button') Continue Shopping

@@ -1,0 +1,25 @@
+extends ./layout.jade
+
+block title
+  title Updating User Details
+
+block content
+  .container.well(style='margin-top:50px')
+    h2 Kindly Update your details
+    form.form-horizontal(action='userDetails/update/#{result._id}',method='post')
+      .form-group
+        label.control-label.col-sm-2(for='firstName') FirstName:
+        .col-sm-10
+          input#email.form-control(type='text', placeholder='Enter FirstName', name='firstName',value='#{result.firstName}')
+      .form-group
+        label.control-label.col-sm-2(for='lastName') LastName:
+        .col-sm-10
+          input#email.form-control(type='text', placeholder='Enter LastName', name='lastName',value='#{result.lastName}')
+      .form-group
+        label.control-label.col-sm-2(for='email') Email:
+        .col-sm-10
+          input#email.form-control(type='email', placeholder='Enter email', name='email',
+          value='#{result.email}')
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type='submit') Submit

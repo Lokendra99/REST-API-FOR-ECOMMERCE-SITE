@@ -1,0 +1,13 @@
+extends ./layout.jade
+
+block title
+  title Successfull product creation
+
+block content
+  .container(style='margin-top:50px')
+    .jumbotron(style='text-align:center')
+      h1 Congratulaions!! Your product has been created.
+      p.lead
+        | Kindly press the button to access your product .
+      p
+        a.btn.btn-lg.btn-success(href='/displayProduct/#{id}', role='button') Your Product

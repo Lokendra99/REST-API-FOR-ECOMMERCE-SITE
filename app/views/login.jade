@@ -1,0 +1,30 @@
+extends ./layout.jade
+
+block title
+  title Login Page
+
+block content
+  .container.well(style='margin-top:50px')
+    h2 Kindly fill Login Details
+    form.form-horizontal(action='/loginCheck',method='post')
+      .form-group
+        label.control-label.col-sm-2(for='email') Email:
+        .col-sm-10
+          input#email.form-control(type='email', placeholder='Enter email', name='email')
+      .form-group
+        label.control-label.col-sm-2(for='pwd') Password:
+        .col-sm-10
+          input#pwd.form-control(type='password', placeholder='Enter password', name='password')
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          .checkbox
+            label
+              input(type='checkbox', name='remember')
+              |  Remember me
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type='submit') Submit
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-default
+           a(href='/passwordReset') Forgot Password
