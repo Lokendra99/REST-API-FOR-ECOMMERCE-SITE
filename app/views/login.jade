@@ -5,6 +5,11 @@ block title
 
 block content
   .container.well(style='margin-top:50px')
+    !=messages('expressMessagesTemplate',locals)
+    ul
+    if(validationErrors)
+      each error in validationErrors
+        li.alert.alert-danger #{error.msg}
     h2 Kindly fill Login Details
     form.form-horizontal(action='/loginCheck',method='post')
       .form-group
@@ -26,5 +31,8 @@ block content
           button.btn.btn-default(type='submit') Submit
       .form-group
         .col-sm-offset-2.col-sm-10
+          button.btn.btn-default
+             a(href='/signUpPage') Sign Up
+          &nbsp &nbsp
           button.btn.btn-default
            a(href='/passwordReset') Forgot Password

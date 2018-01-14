@@ -4,7 +4,13 @@ block title
   title Product Details
 
 block content
+  include ./navbar.jade
   .container.well(style='margin-top:30px;background-color:rgb(231,226,214)')
+    !=messages('expressMessagesTemplate',locals)
+    ul
+    if(validationErrors)
+      each error in validationErrors
+        li.alert.alert-danger #{error.msg}
     h3 Kindly fill up the Product details!!
     form.form-horizontal(action='/productAdd',method='post')
       .form-group

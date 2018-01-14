@@ -2,9 +2,10 @@ var express=require('express');
 var mongoose=require('mongoose');
 var session = require('express-session');
 var bodyParser=require('body-parser');
+var expressValidator=require('express-validator');
 var fs=require('fs');
 var path =require('path');
-var user=require('./app/models/users');
+var user=require('./app/models/Users');
 var userModel=mongoose.model('userModel');
 
 var app=express();
@@ -21,7 +22,30 @@ app.use(session({
     secure: false
   }
 }))
+//connect-flash
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 
+//express validator middleware
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 
 //for automation of getting  JS files from models and controllers
@@ -39,7 +63,7 @@ fs.readdirSync('./app/models').forEach(function(file){
 })
 
 //connection to db
-var dbPath='mongodb://localhost/ecommerce';
+var dbPath='mongodb://localhost/eCart';
 mongoose.connect(dbPath);
 mongoose.connection.once('open',function(err){
   if(err)throw err;
@@ -50,14 +74,9 @@ mongoose.connection.once('open',function(err){
 app.set('view engine','jade');
 app.set('views',path.join(__dirname+'/app/views'));
 
-
 //setting up to use content from localfilesystem
 app.use(express.static('public'));
 app.use('/uploadedData', express.static(__dirname + '/uploadedData'));
-
-
-
-
 
 // app level middleware to make sure that session stores updated results from DB
 app.use(function(req,res,next){

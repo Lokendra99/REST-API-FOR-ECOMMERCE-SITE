@@ -4,7 +4,9 @@ block title
   title User Details
 
 block content
+  include ./navbar.jade
   .container(style='margin-top:50px')
+    !=messages('expressMessagesTemplate',locals)
     .jumbotron(style='text-align:center')
       h3
         |User Name : #{result.fullName}

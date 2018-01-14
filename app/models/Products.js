@@ -9,8 +9,7 @@ var productSchema = new Schema({
   'productSellerName':   {type:String,default:''},
   'productImageAddress': {type:String,default:'',unique:true},
   'productDescription':  [],
-  'productProperties':   {},
-  'productReviews':      []
+  'productProperties':   {}
 })
 
 mongoose.model('productModel',productSchema);

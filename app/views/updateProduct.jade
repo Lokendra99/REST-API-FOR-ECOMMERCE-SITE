@@ -4,7 +4,12 @@ block title
   title  Update Product Details
 
 block content
+  include ./navbar.jade
   .container.well(style='margin-top:30px;background-color:rgb(231,226,214)')
+    ul
+    if(validationErrors)
+      each error in validationErrors
+        li.alert.alert-danger #{error.msg}
     h3 Kindly update the Product details!!
     form.form-horizontal(action='/productUpdate/#{result._id}',method='post')
       .form-group

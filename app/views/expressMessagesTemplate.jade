@@ -1,0 +1,11 @@
+extends ./layout.jade
+
+block title
+  title All Products
+block content
+  .messages.well
+    each type in Object.keys(messages)
+      div(class="#{type}")
+        each message in messages[type]
+          h5
+            div= message

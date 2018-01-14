@@ -4,9 +4,14 @@ block title
   title Updating User Details
 
 block content
+  include ./navbar.jade
   .container.well(style='margin-top:50px')
+    ul
+    if(validationErrors)
+      each error in validationErrors
+        li.alert.alert-danger #{error.msg}
     h2 Kindly Update your details
-    form.form-horizontal(action='userDetails/update/#{result._id}',method='post')
+    form.form-horizontal(action='/userDetails/update/#{result._id}',method='post')
       .form-group
         label.control-label.col-sm-2(for='firstName') FirstName:
         .col-sm-10

@@ -5,7 +5,7 @@ var Schema=mongoose.Schema;
 var userSchema=new Schema({
   'firstName'           : {type:'String',default:''},
   'lastName'            : {type:'String',default:''},
-  'fullName'            : {type:'String',default:'',unique:true},    /// make it unique
+  'fullName'            : {type:'String',default:'',unique:true},
   'email'               : {type:'String',default:'',unique:true},
   'password'            : {type:'String',default:''},
   'cart'                :[],

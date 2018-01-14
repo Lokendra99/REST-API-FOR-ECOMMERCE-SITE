@@ -5,24 +5,28 @@ block title
 
 block content
   .container.well(style='margin-top:50px')
+    ul
+    if(validationErrors)
+      each error in validationErrors
+        li.alert.alert-danger #{error.msg}
     h2 Kindly register yourself !!
-    form.form-horizontal(action='/signUpInfo',method='post')
+    form.form-horizontal(method='post',action='/signUpInfo')
       .form-group
         label.control-label.col-sm-2(for='firstName') FirstName:
         .col-sm-10
-          input#email.form-control(type='text', placeholder='Enter FirstName', name='firstName')
+          input.form-control(type='text', placeholder='Enter FirstName', name='firstName')
       .form-group
         label.control-label.col-sm-2(for='lastName') LastName:
         .col-sm-10
-          input#email.form-control(type='text', placeholder='Enter LastName', name='lastName')
+          input.form-control(type='text', placeholder='Enter LastName', name='lastName')
       .form-group
         label.control-label.col-sm-2(for='email') Email:
         .col-sm-10
-          input#email.form-control(type='email', placeholder='Enter email', name='email')
+          input.form-control(type='email', placeholder='Enter email', name='email')
       .form-group
         label.control-label.col-sm-2(for='pwd') Password:
         .col-sm-10
-          input#pwd.form-control(type='password', placeholder='Enter password', name='password')
+          input.form-control(type='password', placeholder='Enter password', name='password')
       .form-group
         .col-sm-offset-2.col-sm-10
           .checkbox
