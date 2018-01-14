@@ -99,8 +99,8 @@ app.use(function(req,res,next){
 
 
 //setting up port to be used for this project
-var port=3000;
-app.listen(port,function(err){
+
+app.listen(process.env.PORT || 3000,function(err){
   if(err) throw error;
   console.log('sucessfully made connection on port'+port);
 })
